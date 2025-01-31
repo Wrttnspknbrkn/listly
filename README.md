@@ -4,7 +4,7 @@
 **Listly** is a beautifully designed list management app that allows users to create, manage, and share shopping lists with ease. The app offers interactive features such as item tracking, category management, and even a rewards system for completing lists. Whether you're organizing groceries, to-do lists, or any other items, **Listly** provides a smooth and engaging experience to help you stay organized.
 
 ## 🌟 Live Demo
-Access the live application here: [Listly](https://grocerly-galaxy.lovable.app/)
+Access the live application here: [Listly](https://listly.lovable.app/)
 
 ## 📂 Repository
 Find the source code on GitHub: [Listly Repository](https://github.com/Wrttnspknbrkn/grocerly-galaxy.git)
