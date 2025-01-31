@@ -7,7 +7,7 @@
 Access the live application here: [Listly](https://listly.lovable.app/)
 
 ## 📂 Repository
-Find the source code on GitHub: [Listly Repository](https://github.com/Wrttnspknbrkn/grocerly-galaxy.git)
+Find the source code on GitHub: [Listly Repository](https://github.com/Wrttnspknbrkn/listly.git)
 
 ---
 
