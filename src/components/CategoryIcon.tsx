@@ -8,7 +8,7 @@ import {
   ShoppingBasket,
   DollarSign,
   Users,
-  type Icon
+  LucideIcon
 } from 'lucide-react';
 
 interface CategoryIconProps {
@@ -17,7 +17,7 @@ interface CategoryIconProps {
   className?: string;
 }
 
-const iconMap: Record<string, Icon> = {
+const iconMap: Record<string, LucideIcon> = {
   Fruits: Apple,
   Vegetables: Carrot,
   Snacks: Cookie,
