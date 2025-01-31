@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import { StoreSection } from '../components/StoreSection';
+import { CategoryList } from '../components/CategoryList';
 import { Plus, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [groceryLists] = useState({
     "Walmart": [
-      { id: "1", name: "Bananas", quantity: 3, maxQuantity: 6, checked: false },
-      { id: "2", name: "Milk", quantity: 1, maxQuantity: 2, checked: true },
-      { id: "3", name: "Bread", quantity: 1, maxQuantity: 3, checked: false },
+      { id: "1", name: "Bananas", quantity: 3, maxQuantity: 6, checked: false, category: "Fruits", price: 2.99 },
+      { id: "2", name: "Milk", quantity: 1, maxQuantity: 2, checked: true, category: "Dairy", price: 3.49 },
+      { id: "3", name: "Bread", quantity: 1, maxQuantity: 3, checked: false, category: "Other", price: 2.49 },
     ],
     "Whole Foods": [
-      { id: "4", name: "Organic Apples", quantity: 4, maxQuantity: 8, checked: false },
-      { id: "5", name: "Quinoa", quantity: 2, maxQuantity: 4, checked: false },
+      { id: "4", name: "Organic Apples", quantity: 4, maxQuantity: 8, checked: false, category: "Fruits", price: 4.99 },
+      { id: "5", name: "Quinoa", quantity: 2, maxQuantity: 4, checked: false, category: "Other", price: 6.99 },
     ],
   });
 
@@ -24,6 +26,17 @@ const Index = () => {
     console.log('Delete item:', id);
   };
 
+  const filteredLists = Object.entries(groceryLists).reduce((acc, [store, items]) => {
+    const filteredItems = selectedCategory === 'All' 
+      ? items 
+      : items.filter(item => item.category === selectedCategory);
+    
+    if (filteredItems.length > 0) {
+      acc[store] = filteredItems;
+    }
+    return acc;
+  }, {} as typeof groceryLists);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto p-6">
@@ -33,6 +46,11 @@ const Index = () => {
           </h1>
           <p className="text-gray-600">Keep track of everything you need</p>
         </header>
+
+        <CategoryList 
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+        />
 
         <div className="relative mb-8">
           <input
@@ -51,7 +69,7 @@ const Index = () => {
           Add New Item
         </Button>
 
-        {Object.entries(groceryLists).map(([store, items]) => (
+        {Object.entries(filteredLists).map(([store, items]) => (
           <StoreSection
             key={store}
             name={store}

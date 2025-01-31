@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import { QuantityIndicator } from './QuantityIndicator';
-import { Check, Trash2 } from 'lucide-react';
+import { Check, Trash2, DollarSign } from 'lucide-react';
 
 interface GroceryItemProps {
   name: string;
   quantity: number;
   maxQuantity: number;
   checked: boolean;
+  price?: number;
   onToggle: () => void;
   onDelete: () => void;
 }
@@ -16,6 +17,7 @@ export const GroceryItem: FC<GroceryItemProps> = ({
   quantity,
   maxQuantity,
   checked,
+  price,
   onToggle,
   onDelete,
 }) => {
@@ -30,9 +32,17 @@ export const GroceryItem: FC<GroceryItemProps> = ({
       </button>
       
       <div className="flex-grow">
-        <h3 className={`font-medium ${checked ? 'text-gray-400 line-through' : 'text-gray-700'}`}>
-          {name}
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className={`font-medium ${checked ? 'text-gray-400 line-through' : 'text-gray-700'}`}>
+            {name}
+          </h3>
+          {price && (
+            <span className="flex items-center text-sm text-gray-600">
+              <DollarSign size={14} className="mr-1" />
+              {price.toFixed(2)}
+            </span>
+          )}
+        </div>
         <div className="mt-2">
           <QuantityIndicator current={quantity} max={maxQuantity} />
         </div>
