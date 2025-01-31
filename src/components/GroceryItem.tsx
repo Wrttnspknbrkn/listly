@@ -38,7 +38,7 @@ export const GroceryItem: FC<GroceryItemProps> = ({
           </h3>
           {price && (
             <span className="flex items-center text-sm text-gray-600">
-              <DollarSign size={14} className="mr-1" />
+              <span className="mr-1">GH₵</span>
               {price.toFixed(2)}
             </span>
           )}
