@@ -36,6 +36,10 @@ export default {
           DEFAULT: "#10B981",
           foreground: "#FFFFFF",
         },
+        gold: {
+          DEFAULT: "#F59E0B",
+          foreground: "#FFFFFF",
+        },
         muted: {
           DEFAULT: "#F3F4F6",
           foreground: "#6B7280",
@@ -53,10 +57,20 @@ export default {
           "0%": { transform: "scale(0.95)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+        "slide-in": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "slide-out": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.3s ease-out",
         "scale-in": "scale-in 0.2s ease-out",
+        "slide-in": "slide-in 0.3s ease-out",
+        "slide-out": "slide-out 0.3s ease-out",
       },
     },
   },

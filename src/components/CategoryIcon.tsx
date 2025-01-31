@@ -6,7 +6,7 @@ import {
   Milk, 
   Pizza, 
   ShoppingBasket,
-  Icon as LucideIcon
+  LucideIcon
 } from 'lucide-react';
 
 interface CategoryIconProps {
@@ -15,7 +15,7 @@ interface CategoryIconProps {
   className?: string;
 }
 
-const iconMap: Record<string, LucideIcon> = {
+const iconMap: Record<string, typeof LucideIcon> = {
   Fruits: Apple,
   Vegetables: Carrot,
   Snacks: Cookie,

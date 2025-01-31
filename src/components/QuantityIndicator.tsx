@@ -9,7 +9,7 @@ export const QuantityIndicator: FC<QuantityIndicatorProps> = ({ current, max }) 
   const percentage = (current / max) * 100;
   const getColor = () => {
     if (percentage <= 20) return 'bg-red-500';
-    if (percentage <= 50) return 'bg-yellow-500';
+    if (percentage <= 50) return 'bg-gold';
     return 'bg-accent';
   };
 
