@@ -5,10 +5,16 @@ import { Users, DollarSign } from 'lucide-react';
 interface CategoryListProps {
   onSelectCategory: (category: string) => void;
   selectedCategory: string;
+  onShareList: (store: string) => void;
 }
 
-export const CategoryList: FC<CategoryListProps> = ({ onSelectCategory, selectedCategory }) => {
+export const CategoryList: FC<CategoryListProps> = ({ 
+  onSelectCategory, 
+  selectedCategory,
+  onShareList 
+}) => {
   const categories = [
+    'All',
     'Fruits',
     'Vegetables',
     'Dairy',
@@ -30,22 +36,10 @@ export const CategoryList: FC<CategoryListProps> = ({ onSelectCategory, selected
                 : 'bg-white hover:bg-primary/10'
             }`}
           >
-            <CategoryIcon category={category} size={20} />
+            {category !== 'All' && <CategoryIcon category={category} size={20} />}
             <span>{category}</span>
           </button>
         ))}
-        <button
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white hover:bg-primary/10 transition-all duration-200"
-        >
-          <Users size={20} />
-          <span>Share List</span>
-        </button>
-        <button
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white hover:bg-primary/10 transition-all duration-200"
-        >
-          <DollarSign size={20} />
-          <span>Price Tracker</span>
-        </button>
       </div>
     </div>
   );
